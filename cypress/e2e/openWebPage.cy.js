@@ -40,6 +40,7 @@ describe("verifty login all test cases", () => {
     cy.get("#password").type("qa1234");
     cy.get('button[class="_4408f4a8 _58676a35"]').click();
   });
+
   it("verify login with email invalid password", () => {
     cy.visit("https://olx.com.pk"); //open olxpk
     cy.get("button[aria-label='Login']").click();
@@ -55,10 +56,6 @@ describe("verifty login all test cases", () => {
     );
   });
 
-  //.skip for skipping this test
-  it.skip("passes", () => {
-    cy.visit("https://olx.com.pk");
-    //cy.get(".gLFyf").type("{enter}");
-  });
+
 });
-// hello
+
