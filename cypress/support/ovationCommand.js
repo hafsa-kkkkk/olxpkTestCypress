@@ -1,4 +1,8 @@
-Cypress.Commands.add("ovationCall", () => {
+/*
+///<reference types="cypress"/>
+
+import "cypress";
+Cypress.Commands.add('ovationCall', () => {
     cy.request({
         method: "POST",
         url: "https://ovation.olx.com.pk/ingest/adMetric/",
@@ -23,5 +27,45 @@ Cypress.Commands.add("ovationCall", () => {
         expect(Response.status).eq(201);
         //let actualValue = Response.body[0].app_type
         //expect(Response.body[0].app_type).to.eq("web_desktop")
+        // cy.log(Response.body)
+        cy.log(JSON.stringify(Response.body))
+        // cy.wrap(Response.body)
+        // .its('metric_entity')
+        // .should('eq', 'phone');
     });
 });
+
+cypress.Commands.add('get_logintoken', ()=>{
+
+    //login 
+    let accessToken;
+    let refreshToken;
+    let idToken;
+
+  cy.request({
+    method:'POST',
+    url: 'https://auth.olx.com.pk/auth/realms/olx-pk/protocol/openid-connect/token',
+    form: true,
+    body:{
+
+    grant_type: "password",
+    client_id: "frontend",
+    scope: "openid",
+    type: "phone_password",
+    phone_number: "+9203092083036",
+    password: "qa12345"
+
+    }
+
+    }).then((response)=>{
+      expect(response.status).to.eq(200)
+      accessToken = response.access_token
+      refreshToken = response.refresh_token
+      idToken = response.id_token
+      
+    })
+    
+
+
+
+}) */

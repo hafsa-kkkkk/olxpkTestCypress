@@ -1,3 +1,5 @@
+import '../support/ovationCommand.js'
+
 ///<reference types="cypress"/>
 describe("verifty Ovation flows", () => {
     it.only("call ovation from LPV", () => {
@@ -14,9 +16,11 @@ describe("verifty Ovation flows", () => {
 
         // going to search page
         cy.get('button[aria-label="Search"]').click();
-        cy.wait(10000);
+        cy.wait(15000);
         //clicking on call button
-        cy.get('body > div:nth-child(10) > div:nth-child(2) > header:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > ul:nth-child(3) > li:nth-child(1) > article:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(9) > div:nth-child(1) > button:nth-child(1)]').click();
+        cy.get('span[class="_5079de6b f21b9e70 be13fe44"]').eq(0).click();
+        //check ocvation value of call
+        cy.ovationCall();
 
 
 

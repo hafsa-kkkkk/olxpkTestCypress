@@ -14,6 +14,7 @@ describe("verifty ad posting flows", () => {
 
       //click on sell
       cy.get("div[class='_1075545d a662c662 _42f36e3b _96d4439a']").click();
+      
   
       //cy.get(".gLFyf").type("{enter}");
     });
