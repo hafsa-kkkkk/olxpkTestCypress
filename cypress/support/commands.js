@@ -23,7 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-import Cypress from 'cypress';
+
 
 
 Cypress.Commands.add('ovationCall', () => {
@@ -59,7 +59,7 @@ Cypress.Commands.add('ovationCall', () => {
     });
 });
 
-cypress.Commands.add('get_logintoken', ()=>{
+Cypress.Commands.add('get_logintoken', ()=>{
 
     //login 
     let accessToken;
