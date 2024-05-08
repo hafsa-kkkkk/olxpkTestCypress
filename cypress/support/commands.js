@@ -82,20 +82,17 @@ Cypress.Commands.add('get_logintoken', ()=>{
 
     }).then((response)=>{
     
-        expect(response.status).to.eq(200)
+        expect(`Response.status = ${response.status}`).to.eq('Response.status = 200')
         accessToken1 = response.body.access_token
         // expect(response.body.access_token).to.eq(accessToken1)
-        accessToken1 = response.body.access_token
-        refreshToken1 = response.body.refresh_token
-        idToken1 = response.body.id_token
-
+        accessToken1 = response.body['access_token']
+        refreshToken1 = response.body['refresh_token']
+        idToken1 = response.body['id_token']
         // refreshToken1 = JSON.stringify(response.refresh_token)
         // idToken1 = JSON.stringify(response.id_token)
-        // cy.log(accessToken1)
-        
-
-    })
-    cy.apiLogin(accessToken1, idToken1, refreshToken1)
+        cy.log(typeof accessToken1)
+        cy.apiLogin(accessToken1, refreshToken1, idToken1)
+        })
 })
       
     
